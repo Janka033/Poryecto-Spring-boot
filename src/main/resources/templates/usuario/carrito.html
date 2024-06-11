@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Spring eCommerce</title>
+<title>Vehicles Rentals</title>
 
 
 <!-- Bootstrap core CSS -->
@@ -33,12 +33,12 @@
 	<div class="container">
 		<!-- Page Heading/Breadcrumbs -->
 		<h1 class="mt-4 mb-3">
-			Spring eCommerce <small>Carrito</small>
+			Vehicles Rentals <small>Cart</small>
 		</h1>
 
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
-			<li class="breadcrumb-item active">Carrito</li>
+			<li class="breadcrumb-item active">Cart</li>
 		</ol>
 
 		<!-- Blog Post -->
@@ -49,11 +49,11 @@
 						<table class="table">
 							<thead>
 								<tr>
-									<th scope="col">Producto</th>
-									<th scope="col">Precio</th>
-									<th scope="col">Cantidad</th>
+									<th scope="col">Product</th>
+									<th scope="col">Price</th>
+									<th scope="col">Quantity</th>
 									<th scope="col">Total</th>
-									<th scope="col">Acción</th>
+									<th scope="col">Action</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -73,7 +73,7 @@
 
 						<ul class="list-group">
 							<li class="list-group-item"><h5 th:text="${orden.total}"></h5></li>
-							<a th:href="@{/order}" class="btn btn-dark">Ver Orden</a>
+							<a th:href="@{/order}" class="btn btn-dark">Show order</a>
 						</ul>
 					</div>
 

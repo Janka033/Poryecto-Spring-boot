@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Spring eCommerce</title>
+<title>Vehicles Rentals</title>
 
 
 <!-- Bootstrap core CSS -->
@@ -27,13 +27,13 @@
 	<div th:fragment="header">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 			<div class="container">
-				<a class="navbar-brand" th:href="@{/}">Spring eCommerce</a>
+				<a class="navbar-brand" th:href="@{/}">Vehicles Rentals</a>
 
 				<form class="form-inline my-2 my-lg-0" method="post" th:action="@{/search}">
 					<input class="form-control mr-sm-2" type="search"
-						placeholder="Buscar" aria-label="Search" name="nombre"
+						placeholder="Search" aria-label="Search" name="nombre"
 						autocomplete="off">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 				</form>
 
 
@@ -44,7 +44,7 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarResponsive">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item"><a class="nav-link" th:href="@{/getCart}">Carrito</a></li>
+						<li class="nav-item"><a class="nav-link" th:href="@{/getCart}">Cart</a></li>
 						<li class="nav-item"><a class="nav-link" th:href="@{/usuario/login}">Login</a></li>
 					</ul>
 				</div>
@@ -58,13 +58,13 @@
 <div th:fragment="header-user">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
-			<a class="navbar-brand" th:href="@{/}">Spring eCommerce</a>
+			<a class="navbar-brand" th:href="@{/}">Vehicles Rentals</a>
 
 			<form class="form-inline my-2 my-lg-0" method="post" th:action="@{/search}">
 				<input class="form-control mr-sm-2" type="search"
-					placeholder="Buscar" aria-label="Search" name="nombre"
+					placeholder="Search" aria-label="Search" name="nombre"
 					autocomplete="off">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			</form>
 
 
@@ -82,9 +82,9 @@
 							
 							<div class="dropdown-menu"
 								aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item" th:href="@{/usuario/compras}">Compras</a>
-								<a class="dropdown-item" th:href="@{/getCart}">Carrito</a> 
-								<a class="dropdown-item" th:href="@{/usuario/cerrar}">Salir</a> 
+								<a class="dropdown-item" th:href="@{/usuario/compras}">Shopping</a>
+								<a class="dropdown-item" th:href="@{/getCart}">Cart</a>
+								<a class="dropdown-item" th:href="@{/usuario/cerrar}">Exit</a>
 							</div></li>
 				</ul>
 			</div>
@@ -98,8 +98,7 @@
 	<div th:fragment="footer">
 		<footer class="py-5 bg-dark">
 			<div class="container">
-				<p class="m-0 text-center text-white">Copyright &copy; Spring
-					eCommerce 2021</p>
+				<p class="m-0 text-center text-white">Copyright &copy; Vehicles Rentals</p>
 			</div>
 			<!-- /.container -->
 		</footer>

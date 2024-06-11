@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Spring eCommerce</title>
+  <title>Vehicles Rentals</title>
 
 
   <!-- Bootstrap core CSS -->
@@ -25,7 +25,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" th:href="@{/}">Spring Ecommerce</a>
+      <a class="navbar-brand" th:href="@{/}">Vehicles Rentals</a>
 
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,7 +51,7 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h2>Ingresar</h2>
+            <h2>Log in</h2>
 
           </div>
         </div>
@@ -62,22 +62,22 @@
     <form  th:action="@{/usuario/acceder}" method="post">
       <div class="form-group">
         <label for="email"> Email:  </label>      
-        <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese su email" required autocomplete="off"> 
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required autocomplete="off">
 
       </div>
 
       <div class="form-group">
-        <label for="pwd"> Contraseña:</label>
-        <input type="password"  class="form-control" id="password" name="password" placeholder="Ingrese su contraseña" required>       
+        <label for="password"> Contraseña:</label>
+        <input type="password"  class="form-control" id="password" name="password" placeholder="Enter your password" required>
       </div>
 
       <div class="form-group">
         <div class="col-sm-2">
-          <button type="submit" class="btn btn-dark"> <span class="glyphicon glyphicon-ok"></span> Ingresar</button>
+          <button type="submit" class="btn btn-dark"> <span class="glyphicon glyphicon-ok"></span>Enter</button>
         </div>      
       </div>    
     </form>
-    <a th:href="@{/usuario/registro}" class="card-link">Si aún no tiene cuenta aqui puede registrarse</a>
+    <a th:href="@{/usuario/registro}" class="card-link">If you do not have an account yet, you can register here</a>
   </div>
   <!-- /.container -->
 

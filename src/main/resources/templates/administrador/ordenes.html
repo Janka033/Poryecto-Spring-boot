@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Spring eCommerce</title>
+<title>Vehicles Rentals</title>
 
 
 <!-- Bootstrap core CSS -->
@@ -32,12 +32,12 @@
 
 		<!-- Page Heading/Breadcrumbs -->
 		<h1 class="mt-4 mb-3">
-			Spring eCommerce <small>Ordenes</small>
+			Vehicles Rentals <small>Orders</small>
 		</h1>
 
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
-			<li class="breadcrumb-item active">Ordenes</li>
+			<li class="breadcrumb-item active">Orders</li>
 		</ol>
 
 		<!-- Blog Post -->
@@ -48,10 +48,10 @@
 						<table class="table">
 							<thead>
 								<tr>
-									<th scope="col">No. de Orden</th>
-									<th scope="col">Fecha</th>
-									<th scope="col">Valor</th>
-									<th scope="col">Acción</th>
+									<th scope="col">Order No.</th>
+									<th scope="col">Date</th>
+									<th scope="col">Value</th>
+									<th scope="col">Action</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -59,8 +59,7 @@
 									<td th:text="${orden.numero}"></td>
 									<td th:text="${orden.fechaCreacion}"></td>
 									<td th:text="${orden.total}"></td>
-									<td><a th:href="@{/administrador/detalle/{id} (id=${orden.id}) }" class="btn btn-success">Ver
-											Detalle</a></td>
+									<td><a th:href="@{/administrador/detalle/{id} (id=${orden.id}) }" class="btn btn-success">Show details</a></td>
 								</tr>
 							</tbody>
 						</table>
