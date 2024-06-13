@@ -55,11 +55,11 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr th:each="orden:${ordenes}">
-									<td th:text="${orden.numero}"></td>
-									<td th:text="${orden.fechaCreacion}"></td>
-									<td th:text="${orden.total}"></td>
-									<td><a th:href="@{/administrador/detalle/{id} (id=${orden.id}) }" class="btn btn-success">Show details</a></td>
+								<tr th:each="order:${ordenes}">
+									<td th:text="${order.numero}"></td>
+									<td th:text="${order.fechaCreacion}"></td>
+									<td th:text="${order.total}"></td>
+									<td><a th:href="@{/administrador/detalle/{id} (id=${order.id}) }" class="btn btn-success">Show details</a></td>
 								</tr>
 							</tbody>
 						</table>

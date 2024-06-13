@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import co.edu.co.jan.diego.model.Usuario;
 
-public interface IUsuarioService {
+public interface IUserService {
 	List<Usuario> findAll();
 	Optional<Usuario> findById(Integer id);
 	Usuario save (Usuario usuario);

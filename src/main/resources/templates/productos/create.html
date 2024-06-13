@@ -39,19 +39,19 @@
   </ol>
 
   <h2>Create Product</h2>
-  <form class="form-horizontal" th:action="@{/productos/save}" method="post" enctype="multipart/form-data">
+  <form class="form-horizontal" th:action="@{/products/save}" method="post" enctype="multipart/form-data">
     <div class="form-group">
       <label class="control-label col-sm-2" for="nombre">Name:</label>
       <div class="col-sm-10">
         <input type="text" class="form-control" id="nombre" name="nombre"
-        placeholder="Ingrese el nombre del producto" autocomplete="off" required>
+        placeholder="Ingrese el nombre del product" autocomplete="off" required>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="descripcion">Description:</label>
       <div class="col-sm-10">
         <textarea class="form-control" id="descripcion" name="descripcion"
-        placeholder="Ingrese la descripcion del producto" required
+        placeholder="Ingrese la descripcion del product" required
         autocomplete="off"> </textarea>
       </div>
     </div>
@@ -60,7 +60,7 @@
       <label class="control-label col-sm-2" for="cantidad">Quantity:</label>
       <div class="col-sm-10">
         <input type="number" class="form-control" id="cantidad"
-        name="cantidad" placeholder="Ingrese la cantidad del producto"
+        name="cantidad" placeholder="Ingrese la cantidad del product"
         required autocomplete="off">
       </div>
     </div>
@@ -69,7 +69,7 @@
       <label class="control-label col-sm-2" for="precio">Price:</label>
       <div class="col-sm-10">
         <input type="number" class="form-control" step="any" id="precio" name="precio"
-        placeholder="Ingrese el precio del producto" autocomplete="off" required>
+        placeholder="Ingrese el precio del product" autocomplete="off" required>
       </div>
     </div>
 

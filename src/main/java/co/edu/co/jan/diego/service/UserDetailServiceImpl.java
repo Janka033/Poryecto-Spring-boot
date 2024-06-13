@@ -8,7 +8,6 @@ import co.edu.co.jan.diego.model.Usuario;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -19,7 +18,7 @@ import org.springframework.stereotype.Service;
 public class UserDetailServiceImpl implements UserDetailsService{
 	
 	@Autowired
-	private IUsuarioService usuarioService;
+	private IUserService usuarioService;
 	
 	@Autowired
 	private BCryptPasswordEncoder bCrypt;
@@ -36,8 +35,8 @@ public class UserDetailServiceImpl implements UserDetailsService{
 		if (optionalUser.isPresent()) {
 			log.info("Esto es el id del usuario: {}", optionalUser.get().getId());
 			session.setAttribute("idusuario", optionalUser.get().getId());
-			Usuario usuario= optionalUser.get();
-			return User.builder().username(usuario.getNombre()).password(bCrypt.encode(usuario.getPassword())).roles(usuario.getTipo()).build();
+			Usuario usuario = optionalUser.get();
+			return org.springframework.security.core.userdetails.User.builder().username(usuario.getNombre()).password(bCrypt.encode(usuario.getPassword())).roles(usuario.getTipo()).build();
 		}else {
 			throw new UsernameNotFoundException("Usuario no encontrado");			
 		}

@@ -4,26 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import co.edu.co.jan.diego.model.Order;
 import co.edu.co.jan.diego.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import co.edu.co.jan.diego.model.Orden;
-import co.edu.co.jan.diego.repository.IOrdenRepository;
+import co.edu.co.jan.diego.repository.IOrderRepository;
 
 @Service
-public class OrdenServiceImpl implements IOrdenService {
+public class OrderServiceImpl implements IOrderService {
 	
 	@Autowired
-	private IOrdenRepository ordenRepository;
+	private IOrderRepository ordenRepository;
 
 	@Override
-	public Orden save(Orden orden) {
-		return ordenRepository.save(orden);
+	public Order save(Order order) {
+		return ordenRepository.save(order);
 	}
 
 	@Override
-	public List<Orden> findAll() {
+	public List<Order> findAll() {
 		return ordenRepository.findAll();
 	}
 	// 0000010
@@ -31,7 +31,7 @@ public class OrdenServiceImpl implements IOrdenService {
 		int numero=0;
 		String numeroConcatenado="";
 		
-		List<Orden> ordenes = findAll();
+		List<Order> ordenes = findAll();
 		
 		List<Integer> numeros= new ArrayList<Integer>();
 		
@@ -58,12 +58,12 @@ public class OrdenServiceImpl implements IOrdenService {
 	}
 
 	@Override
-	public List<Orden> findByUsuario(Usuario usuario) {
+	public List<Order> findByUsuario(Usuario usuario) {
 		return ordenRepository.findByUsuario(usuario);
 	}
 
 	@Override
-	public Optional<Orden> findById(Integer id) {
+	public Optional<Order> findById(Integer id) {
 		return ordenRepository.findById(id);
 	}
 

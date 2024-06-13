@@ -14,7 +14,7 @@ import lombok.*;
 @Builder
 @Entity
 @Table(name = "ordenes")
-public class Orden {
+public class Order {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -28,8 +28,8 @@ public class Orden {
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 	
-	@OneToMany(mappedBy = "orden")
-	private List<DetalleOrden> detalle;
+	@OneToMany(mappedBy = "order")
+	private List<OrderDetails> detalle;
 
 	@Override
 	public String toString() {

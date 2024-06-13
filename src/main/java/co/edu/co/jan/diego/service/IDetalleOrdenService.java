@@ -1,8 +1,8 @@
 package co.edu.co.jan.diego.service;
 
-import co.edu.co.jan.diego.model.DetalleOrden;
+import co.edu.co.jan.diego.model.OrderDetails;
 
 public interface IDetalleOrdenService {
-	DetalleOrden save (DetalleOrden detalleOrden);
+	OrderDetails save (OrderDetails orderDetails);
 
 }

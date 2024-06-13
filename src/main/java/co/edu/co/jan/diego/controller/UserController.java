@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 
+import co.edu.co.jan.diego.model.Order;
 import co.edu.co.jan.diego.model.Usuario;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,21 +18,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import co.edu.co.jan.diego.model.Orden;
-import co.edu.co.jan.diego.service.IOrdenService;
-import co.edu.co.jan.diego.service.IUsuarioService;
+import co.edu.co.jan.diego.service.IOrderService;
+import co.edu.co.jan.diego.service.IUserService;
 
 @Controller
 @RequestMapping("/usuario")
-public class UsuarioController {
+public class UserController {
 	
-	private final Logger logger= LoggerFactory.getLogger(UsuarioController.class);
-	
-	@Autowired
-	private IUsuarioService usuarioService;
+	private final Logger logger= LoggerFactory.getLogger(UserController.class);
 	
 	@Autowired
-	private IOrdenService ordenService;
+	private IUserService usuarioService;
+	
+	@Autowired
+	private IOrderService ordenService;
 	
 	BCryptPasswordEncoder passEncode= new BCryptPasswordEncoder();
 	
@@ -47,7 +47,7 @@ public class UsuarioController {
 		logger.info("Usuario registro: {}", usuario);
 		usuario.setTipo("USER");
 		usuario.setPassword( passEncode.encode(usuario.getPassword()));
-		usuarioService.save(usuario);		
+		usuarioService.save(usuario);
 		return "redirect:/";
 	}
 	
@@ -82,8 +82,8 @@ public class UsuarioController {
 	public String obtenerCompras(Model model, HttpSession session) {
 		model.addAttribute("sesion", session.getAttribute("idusuario"));
 		
-		Usuario usuario= usuarioService.findById(  Integer.parseInt(session.getAttribute("idusuario").toString()) ).get();
-		List<Orden> ordenes= ordenService.findByUsuario(usuario);
+		Usuario usuario = usuarioService.findById(  Integer.parseInt(session.getAttribute("idusuario").toString()) ).get();
+		List<Order> ordenes= ordenService.findByUsuario(usuario);
 		logger.info("ordenes {}", ordenes);
 		
 		model.addAttribute("ordenes", ordenes);
@@ -94,7 +94,7 @@ public class UsuarioController {
 	@GetMapping("/detalle/{id}")
 	public String detalleCompra(@PathVariable Integer id, HttpSession session, Model model) {
 		logger.info("Id de la orden: {}", id);
-		Optional<Orden> orden=ordenService.findById(id);
+		Optional<Order> orden=ordenService.findById(id);
 		
 		model.addAttribute("detalles", orden.get().getDetalle());
 		

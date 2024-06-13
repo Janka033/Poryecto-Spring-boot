@@ -32,11 +32,11 @@ public class Usuario {
 	private String password;
 	
 	@OneToMany(mappedBy = "usuario")
-	private List<Producto> productos;
+	private List<Product> product;
 
 
 	@OneToMany(mappedBy = "usuario")
-	private List<Orden> ordenes;
+	private List<Order> ordenes;
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", nombre=" + nombre + ", username=" + username + ", email=" + email

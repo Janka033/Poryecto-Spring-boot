@@ -12,7 +12,7 @@ import lombok.*;
 
 @Entity
 @Table(name = "detalles")
-public class DetalleOrden {
+public class OrderDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -23,11 +23,11 @@ public class DetalleOrden {
 	
 	@ManyToOne
 	@JoinColumn(name = "orden_id")
-	private Orden orden;
+	private Order order;
 	
 	@ManyToOne
 	@JoinColumn(name = "producto_id")
-	private Producto producto;
+	private Product product;
 
 	@Override
 	public String toString() {

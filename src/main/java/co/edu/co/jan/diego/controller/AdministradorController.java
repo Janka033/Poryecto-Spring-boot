@@ -2,10 +2,10 @@ package co.edu.co.jan.diego.controller;
 
 import java.util.List;
 
-import co.edu.co.jan.diego.model.Producto;
-import co.edu.co.jan.diego.service.IOrdenService;
-import co.edu.co.jan.diego.service.IUsuarioService;
-import co.edu.co.jan.diego.service.ProductoService;
+import co.edu.co.jan.diego.model.Product;
+import co.edu.co.jan.diego.service.IOrderService;
+import co.edu.co.jan.diego.service.IUserService;
+import co.edu.co.jan.diego.service.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,28 +15,28 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import co.edu.co.jan.diego.model.Orden;
+import co.edu.co.jan.diego.model.Order;
 
 @Controller
 @RequestMapping("/administrador")
 public class AdministradorController {
 
 	@Autowired
-	private ProductoService productoService;
+	private ProductService productService;
 	
 	@Autowired
-	private IUsuarioService usuarioService;
+	private IUserService usuarioService;
 	
 	@Autowired
-	private IOrdenService ordensService;
+	private IOrderService ordensService;
 	
 	private Logger logg= LoggerFactory.getLogger(AdministradorController.class);
 
 	@GetMapping("")
 	public String home(Model model) {
 
-		List<Producto> productos = productoService.findAll();
-		model.addAttribute("productos", productos);
+		List<Product> products = productService.findAll();
+		model.addAttribute("productos", products);
 
 
 		return "administrador/home";
@@ -57,9 +57,9 @@ public class AdministradorController {
 	@GetMapping("/detalle/{id}")
 	public String detalle(Model model, @PathVariable Integer id) {
 		logg.info("Id de la orden {}",id);
-		Orden orden= ordensService.findById(id).get();
+		Order order = ordensService.findById(id).get();
 		
-		model.addAttribute("detalles", orden.getDetalle());
+		model.addAttribute("detalles", order.getDetalle());
 		
 		return "administrador/detalleorden";
 	}
