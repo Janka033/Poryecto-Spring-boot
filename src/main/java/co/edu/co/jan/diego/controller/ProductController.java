@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 
+import co.edu.co.jan.diego.mapping.UserMapper;
 import co.edu.co.jan.diego.model.Product;
 import co.edu.co.jan.diego.model.Usuario;
 import co.edu.co.jan.diego.service.UploadFileService;

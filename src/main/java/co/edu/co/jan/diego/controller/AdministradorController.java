@@ -2,6 +2,7 @@ package co.edu.co.jan.diego.controller;
 
 import java.util.List;
 
+import co.edu.co.jan.diego.dtos.ProductDto;
 import co.edu.co.jan.diego.model.Product;
 import co.edu.co.jan.diego.service.IOrderService;
 import co.edu.co.jan.diego.service.IUserService;
@@ -35,7 +36,7 @@ public class AdministradorController {
 	@GetMapping("")
 	public String home(Model model) {
 
-		List<Product> products = productService.findAll();
+		List<ProductDto> products =productService.findAll();
 		model.addAttribute("productos", products);
 
 

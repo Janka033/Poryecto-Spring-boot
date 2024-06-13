@@ -2,7 +2,10 @@ package co.edu.co.jan.diego.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
+import co.edu.co.jan.diego.dtos.ProductDto;
+import co.edu.co.jan.diego.mapping.ProductMapper;
 import co.edu.co.jan.diego.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,9 +19,9 @@ public class ProductServiceImpl implements ProductService {
 	private IProductRepository productoRepository;
 
 	@Override
-	public Product save(Product product) {
+	public ProductDto save(Product product) {
 
-		return productoRepository.save(product);
+		return ProductMapper.mapFrom(productoRepository.save(product));
 	}
 
 	@Override
@@ -37,8 +40,8 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<Product> findAll() {
-		return productoRepository.findAll();
+	public List<ProductDto> findAll() {
+		return productoRepository.findAll().stream().map(ProductMapper::mapFrom).collect(Collectors.toList());
 	}
 
 }

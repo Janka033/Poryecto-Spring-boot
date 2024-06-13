@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 
+import co.edu.co.jan.diego.dtos.UserDto;
+import co.edu.co.jan.diego.mapping.UserMapper;
 import co.edu.co.jan.diego.model.Order;
 import co.edu.co.jan.diego.model.Usuario;
 import org.slf4j.Logger;
@@ -57,10 +59,10 @@ public class UserController {
 	}
 	
 	@PostMapping("/acceder")
-	public String acceder(Usuario usuario, HttpSession session) {
+	public String acceder(UserDto usuario, HttpSession session) {
 		logger.info("Accesos : {}", usuario);
 		
-		Optional<Usuario> user=usuarioService.findByEmail(usuario.getEmail());
+		Optional<Usuario> user= usuarioService.findByEmail(usuario.email());
 		//logger.info("Usuario de db: {}", user.get());
 		
 		if (user.isPresent()) {

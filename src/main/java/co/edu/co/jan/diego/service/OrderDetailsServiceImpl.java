@@ -1,5 +1,7 @@
 package co.edu.co.jan.diego.service;
 
+import co.edu.co.jan.diego.dtos.OrderDetailsDto;
+import co.edu.co.jan.diego.mapping.OrderDetailsMapper;
 import co.edu.co.jan.diego.model.OrderDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,8 +15,9 @@ public class OrderDetailsServiceImpl implements IDetalleOrdenService{
 	private IDetailOrderRepository detalleOrdenRepository;
 
 	@Override
-	public OrderDetails save(OrderDetails orderDetails) {
-		return detalleOrdenRepository.save(orderDetails);
+	public OrderDetailsDto save(OrderDetails orderDetails) {
+
+		return OrderDetailsMapper.mapFrom(detalleOrdenRepository.save(orderDetails));
 	}
 
 }

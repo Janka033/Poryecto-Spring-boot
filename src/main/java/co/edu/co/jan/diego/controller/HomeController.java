@@ -8,6 +8,9 @@ import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpSession;
 
+import co.edu.co.jan.diego.dtos.OrderDetailsDto;
+import co.edu.co.jan.diego.dtos.ProductDto;
+import co.edu.co.jan.diego.mapping.UserMapper;
 import co.edu.co.jan.diego.model.Order;
 import co.edu.co.jan.diego.model.OrderDetails;
 import co.edu.co.jan.diego.model.Product;
@@ -48,7 +51,7 @@ public class HomeController {
 	private IDetalleOrdenService detalleOrdenService;
 
 	// para almacenar los detalles de la orden
-	List<OrderDetails> detalles = new ArrayList<OrderDetails>();
+	List<OrderDetails> detalles = new ArrayList<>();
 
 	// datos de la orden
 	Order order = new Order();
@@ -97,8 +100,8 @@ public class HomeController {
 		
 		//validar que le producto no se añada 2 veces
 		Integer idProducto= product.getId();
-		boolean ingresado=detalles.stream().anyMatch(p -> p.getProduct().getId()==idProducto);
-		
+		boolean ingresado=detalles.stream().anyMatch(p -> p.getId()  == idProducto);
+
 		if (!ingresado) {
 			detalles.add(orderDetails);
 		}
@@ -152,7 +155,7 @@ public class HomeController {
 	@GetMapping("/order")
 	public String order(Model model, HttpSession session) {
 		
-		Usuario usuario =usuarioService.findById( Integer.parseInt(session.getAttribute("idusuario").toString())).get();
+		Usuario usuario = usuarioService.findById( Integer.parseInt(session.getAttribute("idusuario").toString())).get();
 		
 		model.addAttribute("cart", detalles);
 		model.addAttribute("orden", order);
@@ -169,7 +172,7 @@ public class HomeController {
 		order.setNumero(ordenService.generarNumeroOrden());
 		
 		//usuario
-		Usuario usuario =usuarioService.findById( Integer.parseInt(session.getAttribute("idusuario").toString())  ).get();
+		Usuario usuario = usuarioService.findById( Integer.parseInt(session.getAttribute("idusuario").toString())  ).get();
 		
 		order.setUsuario(usuario);
 		ordenService.save(order);
@@ -190,7 +193,7 @@ public class HomeController {
 	@PostMapping("/search")
 	public String searchProduct(@RequestParam String nombre, Model model) {
 		log.info("Nombre del producto: {}", nombre);
-		List<Product> products = productService.findAll().stream().filter(p -> p.getNombre().contains(nombre)).collect(Collectors.toList());
+		List<ProductDto> products = productService.findAll().stream().filter(p -> p.nombre().contains(nombre)).collect(Collectors.toList());
 		model.addAttribute("products", products);
 		return "usuario/home";
 	}

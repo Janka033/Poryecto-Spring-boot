@@ -2,7 +2,11 @@ package co.edu.co.jan.diego.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
+import co.edu.co.jan.diego.dtos.UserDto;
+import co.edu.co.jan.diego.mapping.OrderMapper;
+import co.edu.co.jan.diego.mapping.UserMapper;
 import co.edu.co.jan.diego.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,8 +25,8 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	@Override
-	public Usuario save(Usuario usuario) {
-		return usuarioRepository.save(usuario);
+	public UserDto save(Usuario usuario) {
+		return UserMapper.mapFrom(usuarioRepository.save(usuario));
 	}
 
 	@Override
@@ -31,8 +35,8 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	@Override
-	public List<Usuario> findAll() {
-		return usuarioRepository.findAll();
+	public List<UserDto> findAll() {
+		return usuarioRepository.findAll().stream().map(UserMapper::mapFrom).collect(Collectors.toList());
 	}
 	
 	

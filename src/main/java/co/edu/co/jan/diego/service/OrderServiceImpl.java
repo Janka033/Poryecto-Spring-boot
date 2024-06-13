@@ -3,7 +3,11 @@ package co.edu.co.jan.diego.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
+import co.edu.co.jan.diego.dtos.OrderDto;
+import co.edu.co.jan.diego.dtos.UserDto;
+import co.edu.co.jan.diego.mapping.OrderMapper;
 import co.edu.co.jan.diego.model.Order;
 import co.edu.co.jan.diego.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,24 +22,24 @@ public class OrderServiceImpl implements IOrderService {
 	private IOrderRepository ordenRepository;
 
 	@Override
-	public Order save(Order order) {
-		return ordenRepository.save(order);
+	public OrderDto save(Order order) {
+		return OrderMapper.mapFrom(ordenRepository.save(order));
 	}
 
 	@Override
-	public List<Order> findAll() {
-		return ordenRepository.findAll();
+	public List<OrderDto> findAll() {
+		return ordenRepository.findAll().stream().map(OrderMapper::mapFrom).collect(Collectors.toList());
 	}
 	// 0000010
 	public String generarNumeroOrden() {
 		int numero=0;
 		String numeroConcatenado="";
 		
-		List<Order> ordenes = findAll();
+		List<OrderDto> ordenes = findAll();
 		
 		List<Integer> numeros= new ArrayList<Integer>();
 		
-		ordenes.stream().forEach(o -> numeros.add( Integer.parseInt( o.getNumero())));
+		ordenes.stream().forEach(o -> numeros.add( Integer.parseInt( o.numero())));
 		
 		if (ordenes.isEmpty()) {
 			numero=1;
@@ -61,6 +65,7 @@ public class OrderServiceImpl implements IOrderService {
 	public List<Order> findByUsuario(Usuario usuario) {
 		return ordenRepository.findByUsuario(usuario);
 	}
+
 
 	@Override
 	public Optional<Order> findById(Integer id) {
