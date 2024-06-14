@@ -1,4 +1,4 @@
-package co.edu.co.jan.diego.service;
+package co.edu.co.jan.diego.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

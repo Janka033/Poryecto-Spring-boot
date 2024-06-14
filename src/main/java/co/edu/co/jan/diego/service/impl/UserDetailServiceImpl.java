@@ -1,10 +1,11 @@
-package co.edu.co.jan.diego.service;
+package co.edu.co.jan.diego.service.impl;
 
 import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 
 import co.edu.co.jan.diego.model.Usuario;
+import co.edu.co.jan.diego.service.IUserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

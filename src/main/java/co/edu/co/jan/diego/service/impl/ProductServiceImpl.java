@@ -1,4 +1,4 @@
-package co.edu.co.jan.diego.service;
+package co.edu.co.jan.diego.service.impl;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import co.edu.co.jan.diego.dtos.ProductDto;
 import co.edu.co.jan.diego.mapping.ProductMapper;
 import co.edu.co.jan.diego.model.Product;
+import co.edu.co.jan.diego.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
