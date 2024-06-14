@@ -3,8 +3,6 @@ package co.edu.co.jan.diego.dtos;
 
 import co.edu.co.jan.diego.model.Order;
 import co.edu.co.jan.diego.model.Product;
-import lombok.Builder;
-
 import javax.validation.constraints.*;
 
 public record OrderDetailsDto(@NotNull(message = "No puede ser null")

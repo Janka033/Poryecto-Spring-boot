@@ -20,5 +20,4 @@ public class OrderDetailsServiceImpl implements IDetalleOrdenService {
 
 		return OrderDetailsMapper.mapFrom(detalleOrdenRepository.save(orderDetails));
 	}
-
 }

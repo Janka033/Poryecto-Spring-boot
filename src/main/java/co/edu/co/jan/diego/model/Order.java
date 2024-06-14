@@ -31,11 +31,6 @@ public class Order {
 	@OneToMany(mappedBy = "order")
 	private List<OrderDetails> detalle;
 
-	@Override
-	public String toString() {
-		return "Orden [id=" + id + ", numero=" + numero + ", fechaCreacion=" + fechaCreacion + ", fechaRecibida="
-				+ fechaRecibida + ", total=" + total + "]";
-	}
 
 
 }

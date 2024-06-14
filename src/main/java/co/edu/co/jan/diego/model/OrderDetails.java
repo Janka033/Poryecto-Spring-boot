@@ -29,10 +29,5 @@ public class OrderDetails {
 	@JoinColumn(name = "producto_id")
 	private Product product;
 
-	@Override
-	public String toString() {
-		return "DetalleOrden [id=" + id + ", nombre=" + nombre + ", cantidad=" + cantidad + ", precio=" + precio
-				+ ", total=" + total + "]";
-	}
 
 }
